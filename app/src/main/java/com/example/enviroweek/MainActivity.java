@@ -24,89 +24,80 @@ public class MainActivity extends AppCompatActivity
 
         Calendar calendar = Calendar.getInstance();
         int day = calendar.get(Calendar.DAY_OF_WEEK);
-        /*
-        switch (day) {
+
+        switch (day+1)
+        {
             case Calendar.SUNDAY:
+
+                Sunday = (Button) findViewById(R.id.Sunday);
+                Sunday.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        openact("Κυριακή");
+                        //openacttest();
+                    }
+
+                });
 
                 break;
             case Calendar.MONDAY:
-
+                Monday = (Button) findViewById(R.id.Monday);
+                Monday.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        openact("Δευτέρα");
+                    }
+                });
                 break;
             case Calendar.TUESDAY:
-
+                Tuesday = (Button) findViewById(R.id.Tuesday);
+                Tuesday.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        openact("Τρίτη");
+                    }
+                });
                 break;
             case Calendar.WEDNESDAY:
+                Wednesday = (Button) findViewById(R.id.Wednesday);
+                Wednesday.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        openact("Τετάρτη");
+                    }
+                });
                 break;
             case Calendar.THURSDAY:
+                Thursday = (Button) findViewById(R.id.Thursday);
+                Thursday.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        openact("Πέμπτη");
+                    }
+                });
                 break;
             case Calendar.FRIDAY:
+                Friday = (Button) findViewById(R.id.Friday);
+                Friday.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        openact("Παρασκευή");
+                    }
+                });
                 break;
             case Calendar.SATURDAY:
+                Saturday = (Button) findViewById(R.id.Saturday);
+                Saturday.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        openact("Σάββατο");
+
+                    }
+                });
                 break;
 
 
         }
-*/
-
-        Monday = (Button) findViewById(R.id.Monday);
-        Monday.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                openact("Δευτέρα");
-            }
-        });
-
-        Tuesday = (Button) findViewById(R.id.Tuesday);
-        Tuesday.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                openact("Τρίτη");
-            }
-        });
-
-        Wednesday = (Button) findViewById(R.id.Wednesday);
-        Wednesday.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                openact("Τετάρτη");
-            }
-        });
-
-        Thursday = (Button) findViewById(R.id.Thursday);
-        Thursday.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                openact("Πέμπτη");
-            }
-        });
-
-        Friday = (Button) findViewById(R.id.Friday);
-        Friday.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                openact("Παρασκευή");
-            }
-        });
-
-        Saturday = (Button) findViewById(R.id.Saturday);
-        Saturday.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                openact("Σάββατο");
-
-            }
-        });
-
-        Sunday = (Button) findViewById(R.id.Sunday);
-        Sunday.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                openact("Κυριακή");
-                //openacttest();
-            }
-
-        });
-
     }
 
     protected void openact(String titles)
