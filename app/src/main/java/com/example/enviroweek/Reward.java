@@ -17,6 +17,7 @@ public class Reward extends AppCompatActivity {
 
         // δημιουργία αντικειμένου τύπου TipDatabase
         TipDatabase a = new TipDatabase();
+
         // random επιλογή του tip που θα εμφανιστεί
         int max = a.tips.size();
         int min = 1;
@@ -29,11 +30,8 @@ public class Reward extends AppCompatActivity {
         rand=rand-1;
 
         TextView message;
-
         message=(TextView) findViewById(R.id.editTextTextMultiLine);
-
         message.setText(a.tips.get(rand));
-
 
     }
 }

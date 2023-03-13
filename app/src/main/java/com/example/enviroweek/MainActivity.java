@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity
 {
@@ -16,8 +17,37 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         // κουμπάκια!
         Button Monday , Tuesday, Wednesday , Thursday, Friday, Saturday , Sunday;
+
+
+        Calendar calendar = Calendar.getInstance();
+        int day = calendar.get(Calendar.DAY_OF_WEEK);
+        /*
+        switch (day) {
+            case Calendar.SUNDAY:
+
+                break;
+            case Calendar.MONDAY:
+
+                break;
+            case Calendar.TUESDAY:
+
+                break;
+            case Calendar.WEDNESDAY:
+                break;
+            case Calendar.THURSDAY:
+                break;
+            case Calendar.FRIDAY:
+                break;
+            case Calendar.SATURDAY:
+                break;
+
+
+        }
+*/
+
         Monday = (Button) findViewById(R.id.Monday);
         Monday.setOnClickListener(new View.OnClickListener() {
             @Override
