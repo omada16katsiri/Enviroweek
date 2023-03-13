@@ -17,13 +17,12 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
 
         // κουμπάκια!
-
         Button Monday , Tuesday, Wednesday , Thursday, Friday, Saturday , Sunday;
         Monday = (Button) findViewById(R.id.Monday);
         Monday.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                openact();
+                openact("Δευτέρα");
             }
         });
 
@@ -31,7 +30,7 @@ public class MainActivity extends AppCompatActivity
         Tuesday.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                openact();
+                openact("Τρίτη");
             }
         });
 
@@ -39,7 +38,7 @@ public class MainActivity extends AppCompatActivity
         Wednesday.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                openact();
+                openact("Τετάρτη");
             }
         });
 
@@ -47,7 +46,7 @@ public class MainActivity extends AppCompatActivity
         Thursday.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                openact();
+                openact("Πέμπτη");
             }
         });
 
@@ -55,7 +54,7 @@ public class MainActivity extends AppCompatActivity
         Friday.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                openact();
+                openact("Παρασκευή");
             }
         });
 
@@ -63,7 +62,7 @@ public class MainActivity extends AppCompatActivity
         Saturday.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                openact();
+                openact("Σάββατο");
 
             }
         });
@@ -72,20 +71,25 @@ public class MainActivity extends AppCompatActivity
         Sunday.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                openact();
+                openact("Κυριακή");
+                //openacttest();
             }
 
         });
 
-
-
     }
 
-    protected void openact()
+    protected void openact(String titles)
     {
         Intent intent = new Intent(this, quests.class);
+        intent.putExtra("title",titles);
         startActivity(intent);
     }
 
+    protected void openacttest()
+    {
+        Intent intent = new Intent(this, Reward.class);
+        startActivity(intent);
+    }
 }
 
