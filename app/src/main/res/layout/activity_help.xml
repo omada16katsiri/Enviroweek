@@ -4,20 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Reward">
+    tools:context=".help">
 
     <TextView
-        android:id="@+id/editTextTextMultiLine"
-        android:layout_width="277dp"
-        android:layout_height="366dp"
-        android:background="@color/appcolour"
-        android:ems="10"
-        android:gravity="start|top"
-        android:inputType="textMultiLine"
-        android:textColor="@color/white"
+        android:id="@+id/helptextview"
+        android:layout_width="356dp"
+        android:layout_height="544dp"
+        android:text="TextView"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

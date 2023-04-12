@@ -83,5 +83,15 @@
         app:layout_constraintStart_toEndOf="@+id/Friday"
         app:layout_constraintTop_toBottomOf="@+id/Friday" />
 
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
+        app:layout_constraintBottom_toTopOf="@+id/Tuesday"
+
+        app:srcCompat="@android:drawable/ic_dialog_info"
+        tools:layout_editor_absoluteX="325dp" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
