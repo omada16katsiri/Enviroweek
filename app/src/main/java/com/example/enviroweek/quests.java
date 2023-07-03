@@ -22,7 +22,14 @@ public class quests extends AppCompatActivity {
         // μετονομασία τίτλου
         String new_title = intent.getStringExtra("title");
         setTitle(new_title);
+        CheckBoxini();
 
+        //το final απαγορεύει την αλλαγή της τιμής των CheckBoxes
+
+
+    }
+    public void CheckBoxini()
+    {
         Thread thread=new Thread(new Runnable()
         {
             @Override
@@ -31,13 +38,14 @@ public class quests extends AppCompatActivity {
                 ProgressBar progress;
                 progress= (ProgressBar) findViewById(R.id.progressBar);
                 progress.setMax(120); // megisti timi
-                progress.setProgress(20);
+                final int progressStep = progress.getMax() / 6;
                 final CheckBox cb1, cb2 , cb3 , cb4 ,cb5 , cb6;
                 // checkbox 1
                 cb1= (CheckBox) findViewById(R.id.checkBox);
                 cb1.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
+                        progress.incrementProgressBy(progressStep);
                         cb1.setClickable(false);
                     }
                 });
@@ -46,16 +54,20 @@ public class quests extends AppCompatActivity {
                 cb2= (CheckBox) findViewById(R.id.checkBox2);
                 cb2.setOnClickListener(new View.OnClickListener() {
                     @Override
-                    public void onClick(View view) {
+                    public void onClick(View view)
+                    {
+                        progress.incrementProgressBy(progressStep);
                         cb2.setClickable(false);
                     }
                 });
 
                 // checkbox 3
                 cb3= (CheckBox) findViewById(R.id.checkBox3);
-                cb3.setOnClickListener(new View.OnClickListener() {
+                cb3.setOnClickListener(new View.OnClickListener()
+                {
                     @Override
                     public void onClick(View view) {
+                        progress.incrementProgressBy(progressStep);
                         cb3.setClickable(false);
                     }
                 });
@@ -66,6 +78,7 @@ public class quests extends AppCompatActivity {
                     @Override
                     public void onClick(View view) {
                         cb4.setClickable(false);
+                        progress.incrementProgressBy(progressStep);
                     }
                 });
 
@@ -75,6 +88,7 @@ public class quests extends AppCompatActivity {
                     @Override
                     public void onClick(View view) {
                         cb5.setClickable(false);
+                        progress.incrementProgressBy(progressStep);
                     }
                 });
 
@@ -84,6 +98,7 @@ public class quests extends AppCompatActivity {
                     @Override
                     public void onClick(View view) {
                         cb6.setClickable(false);
+                        progress.incrementProgressBy(progressStep);
                     }
                 });
 
@@ -91,9 +106,9 @@ public class quests extends AppCompatActivity {
             }
         });
         thread.start();
-        //το final απαγορεύει την αλλαγή της τιμής των CheckBoxes
-
 
     }
+    //public void ProgressBarini()
+
 
 }

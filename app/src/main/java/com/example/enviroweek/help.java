@@ -14,6 +14,10 @@ public class help extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_help);
         this.setTitle("Βοήθεια");
+        showhelp();
+    }
+    public void showhelp()
+    {
         Thread thread = new Thread(new Runnable()
         {
             @Override
@@ -30,7 +34,7 @@ public class help extends AppCompatActivity
                 text.setText(keimeno);
             }
         });
-
         thread.start();
     }
+
 }

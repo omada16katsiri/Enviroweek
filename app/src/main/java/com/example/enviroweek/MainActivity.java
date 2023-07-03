@@ -29,8 +29,7 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         button_match();
-        button_functions();
-
+        button_functions_on_date();
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu)
@@ -58,7 +57,7 @@ public class MainActivity extends AppCompatActivity
         Saturday = (Button) findViewById(R.id.Saturday);
     }
 
-    private void button_functions()
+    private void button_functions_on_date()
     {
         Calendar calendar = Calendar.getInstance();
         int day = calendar.get(Calendar.DAY_OF_WEEK);
