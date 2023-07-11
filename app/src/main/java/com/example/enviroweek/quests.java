@@ -3,14 +3,25 @@ package com.example.enviroweek;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.ProgressBar;
 
-public class quests extends AppCompatActivity {
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Calendar;
+import java.util.Timer;
+import java.util.TimerTask;
 
-
+public class quests extends AppCompatActivity
+{
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -23,21 +34,83 @@ public class quests extends AppCompatActivity {
         String new_title = intent.getStringExtra("title");
         setTitle(new_title);
 
+
+        arxikopoisi_pinaka();
+
         CheckBoxini();
 
 
 
     }
 
+    public void arxikopoisi_pinaka()
+    {
+        Timer timer = new Timer();
+        Calendar date = Calendar.getInstance();
+        date.set(Calendar.DAY_OF_WEEK, Calendar.MONDAY);
+        date.set(Calendar.HOUR_OF_DAY, 0);
+        date.set(Calendar.MINUTE, 0);
+        date.set(Calendar.SECOND, 0);
+        date.set(Calendar.MILLISECOND, 0);
 
+        timer.schedule(new TimerTask() {
+            public void run()
+            {
+
+                try {
+                    FileWriter writer = new FileWriter("save.txt");
+                    for (int i = 0; i < 7; i++)
+                    {
+                        for (int j = 0; j < 6; j++) {
+                            writer.write( '0');
+                        }
+                        writer.write("\n");
+                    }
+                    writer.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }, date.getTime(), 7 * 24 * 60 * 60 * 1000);
+
+    }
+
+    public static void replaceElement(int row, int col) {
+        try {
+            File file = new File("save.txt");
+            BufferedReader reader = new BufferedReader(new FileReader(file));
+            String line;
+            StringBuilder builder = new StringBuilder();
+            int currentRow = 0;
+            while ((line = reader.readLine()) != null) {
+                if (currentRow == row) {
+                    char[] chars = line.toCharArray();
+                    chars[col] = '1';
+                    line = new String(chars);
+                }
+                builder.append(line).append("\n");
+                currentRow++;
+            }
+            reader.close();
+            FileWriter writer = new FileWriter(file);
+            writer.write(builder.toString());
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     public void CheckBoxini()
     {
+
         Thread thread=new Thread(new Runnable()
         {
+
             @Override
             public void run()
             {
+                Calendar calendar = Calendar.getInstance();
+                int day = calendar.get(Calendar.DAY_OF_WEEK);
                 ProgressBar progress;
                 progress= (ProgressBar) findViewById(R.id.progressBar);
                 final CheckBox cb1, cb2 , cb3 , cb4 ,cb5 , cb6;
@@ -49,6 +122,9 @@ public class quests extends AppCompatActivity {
                         int currentprogress=progress.getProgress();
                         progress.setProgress(currentprogress+ 17);
                         cb1.setClickable(false);
+                        replaceElement(day-1 , 0);
+
+
                     }
                 });
 
@@ -61,6 +137,8 @@ public class quests extends AppCompatActivity {
                         int currentprogress=progress.getProgress();
                         progress.setProgress(currentprogress+ 17);
                         cb2.setClickable(false);
+                        replaceElement(day-1 , 1);
+
                     }
                 });
 
@@ -73,6 +151,8 @@ public class quests extends AppCompatActivity {
                         int currentprogress=progress.getProgress();
                         progress.setProgress(currentprogress+ 17);
                         cb3.setClickable(false);
+                        replaceElement(day-1 , 2);
+
                     }
                 });
 
@@ -84,6 +164,8 @@ public class quests extends AppCompatActivity {
                         cb4.setClickable(false);
                         int currentprogress=progress.getProgress();
                         progress.setProgress(currentprogress+ 17);
+                        replaceElement(day-1 , 3);
+
                     }
                 });
 
@@ -95,6 +177,8 @@ public class quests extends AppCompatActivity {
                         cb5.setClickable(false);
                         int currentprogress=progress.getProgress();
                         progress.setProgress(currentprogress+ 17);
+                        replaceElement(day-1 , 4);
+
                     }
                 });
 
@@ -106,6 +190,8 @@ public class quests extends AppCompatActivity {
                         cb6.setClickable(false);
                         int currentprogress=progress.getProgress();
                         progress.setProgress(currentprogress+ 17);
+                        replaceElement(day-1 , 5);
+
                     }
                 });
 
@@ -115,7 +201,5 @@ public class quests extends AppCompatActivity {
         thread.start();
 
     }
-    //public void ProgressBarini()
-
 
 }
