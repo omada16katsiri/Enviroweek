@@ -22,12 +22,15 @@ public class quests extends AppCompatActivity {
         // μετονομασία τίτλου
         String new_title = intent.getStringExtra("title");
         setTitle(new_title);
+
         CheckBoxini();
 
-        //το final απαγορεύει την αλλαγή της τιμής των CheckBoxes
 
 
     }
+
+
+
     public void CheckBoxini()
     {
         Thread thread=new Thread(new Runnable()
@@ -37,15 +40,14 @@ public class quests extends AppCompatActivity {
             {
                 ProgressBar progress;
                 progress= (ProgressBar) findViewById(R.id.progressBar);
-                progress.setMax(120); // megisti timi
-                final int progressStep = progress.getMax() / 6;
                 final CheckBox cb1, cb2 , cb3 , cb4 ,cb5 , cb6;
                 // checkbox 1
                 cb1= (CheckBox) findViewById(R.id.checkBox);
                 cb1.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        progress.incrementProgressBy(progressStep);
+                        int currentprogress=progress.getProgress();
+                        progress.setProgress(currentprogress+ 17);
                         cb1.setClickable(false);
                     }
                 });
@@ -56,7 +58,8 @@ public class quests extends AppCompatActivity {
                     @Override
                     public void onClick(View view)
                     {
-                        progress.incrementProgressBy(progressStep);
+                        int currentprogress=progress.getProgress();
+                        progress.setProgress(currentprogress+ 17);
                         cb2.setClickable(false);
                     }
                 });
@@ -67,7 +70,8 @@ public class quests extends AppCompatActivity {
                 {
                     @Override
                     public void onClick(View view) {
-                        progress.incrementProgressBy(progressStep);
+                        int currentprogress=progress.getProgress();
+                        progress.setProgress(currentprogress+ 17);
                         cb3.setClickable(false);
                     }
                 });
@@ -78,7 +82,8 @@ public class quests extends AppCompatActivity {
                     @Override
                     public void onClick(View view) {
                         cb4.setClickable(false);
-                        progress.incrementProgressBy(progressStep);
+                        int currentprogress=progress.getProgress();
+                        progress.setProgress(currentprogress+ 17);
                     }
                 });
 
@@ -88,7 +93,8 @@ public class quests extends AppCompatActivity {
                     @Override
                     public void onClick(View view) {
                         cb5.setClickable(false);
-                        progress.incrementProgressBy(progressStep);
+                        int currentprogress=progress.getProgress();
+                        progress.setProgress(currentprogress+ 17);
                     }
                 });
 
@@ -98,7 +104,8 @@ public class quests extends AppCompatActivity {
                     @Override
                     public void onClick(View view) {
                         cb6.setClickable(false);
-                        progress.incrementProgressBy(progressStep);
+                        int currentprogress=progress.getProgress();
+                        progress.setProgress(currentprogress+ 17);
                     }
                 });
 

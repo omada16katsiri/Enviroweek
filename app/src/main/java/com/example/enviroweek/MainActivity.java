@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         button_match();
         button_functions_on_date();
-        openacttest();
+        //openacttest();
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu)
