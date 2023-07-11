@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         button_match();
         button_functions_on_date();
+        openacttest();
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu)
@@ -71,7 +72,7 @@ public class MainActivity extends AppCompatActivity
                     @Override
                     public void onClick(View view) {
                         openact("Κυριακή");
-                        //openacttest();
+
 
                     }
                 });
