@@ -38,8 +38,9 @@ public class quests extends AppCompatActivity {
         // μετονομασία τίτλου
         String new_title = intent1.getStringExtra("title");
         setTitle(new_title);
+        //test1();
         assign();
-        CheckBoxinitialstate(quests.this);
+        CheckBoxinitialstate();
         CheckBoxini();
 
 
@@ -89,9 +90,10 @@ public class quests extends AppCompatActivity {
         }
     }
 
-    public void CheckBoxinitialstate(Context context) {
+    public void CheckBoxinitialstate() {
         try {
-            FileInputStream fis = context.openFileInput("dedomena.txt");
+
+            FileInputStream fis = openFileInput("dedomena.txt");
             BufferedReader reader = new BufferedReader(new InputStreamReader(fis));
 
             for (int i = 0; i < day; i++) {
@@ -174,7 +176,7 @@ public class quests extends AppCompatActivity {
                             int currentprogress = progress.getProgress();
                             progress.setProgress(currentprogress + 17);
                             cb1.setClickable(false);
-                            replace(quests.this, day, 0, "1");
+                            replace( day, 0, "1");
                             augment_check();
                         }
                     });
@@ -188,7 +190,7 @@ public class quests extends AppCompatActivity {
                             int currentprogress = progress.getProgress();
                             progress.setProgress(currentprogress + 17);
                             cb2.setClickable(false);
-                            replace(quests.this, day, 1, "1");
+                            replace( day, 1, "1");
                             augment_check();
                         }
                     });
@@ -202,7 +204,7 @@ public class quests extends AppCompatActivity {
                             int currentprogress = progress.getProgress();
                             progress.setProgress(currentprogress + 17);
                             cb3.setClickable(false);
-                            replace(quests.this, day, 2, "1");
+                            replace( day, 2, "1");
                             augment_check();
                         }
                     });
@@ -216,7 +218,7 @@ public class quests extends AppCompatActivity {
                             cb4.setClickable(false);
                             int currentprogress = progress.getProgress();
                             progress.setProgress(currentprogress + 17);
-                            replace(quests.this, day, 3, "1");
+                            replace( day, 3, "1");
                             augment_check();
                         }
                     });
@@ -229,7 +231,7 @@ public class quests extends AppCompatActivity {
                             cb5.setClickable(false);
                             int currentprogress = progress.getProgress();
                             progress.setProgress(currentprogress + 17);
-                            replace(quests.this, day, 4, "1");
+                            replace( day, 4, "1");
                             augment_check();
                         }
                     });
@@ -243,7 +245,7 @@ public class quests extends AppCompatActivity {
                             cb6.setClickable(false);
                             int currentprogress = progress.getProgress();
                             progress.setProgress(currentprogress + 17);
-                            replace(quests.this, day, 5, "1");
+                            replace( day, 5, "1");
                             augment_check();
                         }
                     });
@@ -256,12 +258,14 @@ public class quests extends AppCompatActivity {
     }
 
 
-    public static void replace(Context context, int row, int column, String value) {
+    public  void replace( int row, int column, String value)
+    {
         String[][] pin = new String[7][6];
         try {
-            FileInputStream fis = context.openFileInput("dedomena.txt");
+            FileInputStream fis = openFileInput("dedomena.txt");
             BufferedReader reader = new BufferedReader(new InputStreamReader(fis));
-            for (int i = 0; i < 7; i++) {
+            for (int i = 0; i < 7; i++)
+            {
                 String[] temp = reader.readLine().split(" ");
                 for (int j = 0; j < 6; j++) {
                     pin[i][j] = temp[j];
@@ -269,7 +273,7 @@ public class quests extends AppCompatActivity {
             }
             pin[row][column] = value;
 
-            FileOutputStream fos = context.openFileOutput("dedomena.txt", Context.MODE_PRIVATE);
+            FileOutputStream fos = openFileOutput("dedomena.txt", MODE_PRIVATE);
             BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(fos));
             for (int i = 0; i < 7; i++) {
                 for (int j = 0; j < 6; j++) {
@@ -287,21 +291,29 @@ public class quests extends AppCompatActivity {
     }
 
 
-    public void test1(Context context)
+    /*
+    public void test1()
     {
-        try {
-            FileInputStream fis = context.openFileInput("dedomena.txt");
-            BufferedReader reader = new BufferedReader(new InputStreamReader(fis));
-            for (int i = 0; i < 7; i++)
-            {
-                for (int j = 0; j < 6; j++) {
-                    System.out.print(reader.readLine());
-                }
-            }
-        }
-        catch (IOException e)
+        try
         {
+            FileOutputStream fos = openFileOutput("dedomena.txt", MODE_PRIVATE);
+            BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(fos));
+            for (int i = 0; i < 7; i++) {
+                for (int j = 0; j < 6; j++) {
+                    writer.write("1");
+                    // System.out.print();
+                    if (j != 5) {
+                        writer.write(" ");
+                        // System.out.print();
+                    }
+                }
+                writer.write("\n");
+            }
+            writer.close();
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
+     */
 }
