@@ -4,6 +4,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Matrix;
@@ -30,7 +32,6 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         button_match();
         button_functions_on_date();
-        //openacttest();
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu)
@@ -152,10 +153,5 @@ public class MainActivity extends AppCompatActivity
         startActivity(intent);
     }
 
-    protected void openacttest()
-    {
-        Intent intent = new Intent(this, Reward.class);
-        startActivity(intent);
-    }
 }
 
