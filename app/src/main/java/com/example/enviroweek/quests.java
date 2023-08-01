@@ -26,7 +26,7 @@ public class quests extends AppCompatActivity {
     public int day = calendar.get(Calendar.DAY_OF_WEEK) - 1;
     public CheckBox cb1, cb2, cb3, cb4, cb5, cb6;
     public ProgressBar progress;
-    public int c = 0;
+    public int c;
 
 
     @Override
@@ -39,6 +39,7 @@ public class quests extends AppCompatActivity {
         String new_title = intent1.getStringExtra("title");
         setTitle(new_title);
         //test1();
+        this.c = 0;
         assign();
         CheckBoxinitialstate();
         CheckBoxini();
@@ -96,69 +97,60 @@ public class quests extends AppCompatActivity {
             FileInputStream fis = openFileInput("dedomena.txt");
             BufferedReader reader = new BufferedReader(new InputStreamReader(fis));
 
-            for (int i = 0; i <= day; i++)
-            {
-                String[] temp = reader.readLine().split(" ");
-                for (int j = 0; j < 6; j++)
-                {
-                    switch (j)
-                    {
-                        case 0:
-                            if (Objects.equals(temp[j], "1"))
-                            {
-                                System.out.println("Mpika!!!!");
-                                cb1.setChecked(true);
-                                cb1.setClickable(false);
-                                int currentprogress = progress.getProgress();
-                                progress.setProgress(currentprogress + 17);
-                                augment_check();
-                            }
-
-                        case 1:
-                            if (Objects.equals(temp[j], "1")) {
-                                cb2.setChecked(true);
-                                cb2.setClickable(false);
-                                int currentprogress = progress.getProgress();
-                                progress.setProgress(currentprogress + 17);
-                                augment_check();
-                            }
-                        case 2:
-                            if (Objects.equals(temp[j], "1")) {
-                                cb3.setChecked(true);
-                                cb3.setClickable(false);
-                                int currentprogress = progress.getProgress();
-                                progress.setProgress(currentprogress + 17);
-                                augment_check();
-                            }
-                        case 3:
-                            if (Objects.equals(temp[j], "1")) {
-                                cb4.setChecked(true);
-                                cb4.setClickable(false);
-                                int currentprogress = progress.getProgress();
-                                progress.setProgress(currentprogress + 17);
-                                augment_check();
-                            }
-                        case 4:
-                            if (Objects.equals(temp[j], "1")) {
-                                cb5.setChecked(true);
-                                cb5.setClickable(false);
-                                int currentprogress = progress.getProgress();
-                                progress.setProgress(currentprogress + 17);
-                                augment_check();
-                            }
-                        case 5:
-                            if (Objects.equals(temp[j], "1")) {
-                                cb6.setChecked(true);
-                                cb6.setClickable(false);
-                                int currentprogress = progress.getProgress();
-                                progress.setProgress(currentprogress + 17);
-                                augment_check();
-                            }
-                    }
-
-                }
-
+            for (int i = 0; i < day; i++) {
+                reader.readLine();
             }
+            String[] temp = reader.readLine().split(" ");
+
+            if (Objects.equals(temp[0], "1")) {
+                cb1.setChecked(true);
+                cb1.setClickable(false);
+                int currentprogress = progress.getProgress();
+                progress.setProgress(currentprogress + 17);
+                augment_check();
+            }
+
+
+            if (Objects.equals(temp[1], "1")) {
+                cb2.setChecked(true);
+                cb2.setClickable(false);
+                int currentprogress = progress.getProgress();
+                progress.setProgress(currentprogress + 17);
+                augment_check();
+            }
+
+            if (Objects.equals(temp[2], "1")) {
+                cb3.setChecked(true);
+                cb3.setClickable(false);
+                int currentprogress = progress.getProgress();
+                progress.setProgress(currentprogress + 17);
+                augment_check();
+            }
+
+            if (Objects.equals(temp[3], "1")) {
+                cb4.setChecked(true);
+                cb4.setClickable(false);
+                int currentprogress = progress.getProgress();
+                progress.setProgress(currentprogress + 17);
+                augment_check();
+            }
+
+            if (Objects.equals(temp[4], "1")) {
+                cb5.setChecked(true);
+                cb5.setClickable(false);
+                int currentprogress = progress.getProgress();
+                progress.setProgress(currentprogress + 17);
+                augment_check();
+            }
+
+            if (Objects.equals(temp[5], "1")) {
+                cb6.setChecked(true);
+                cb6.setClickable(false);
+                int currentprogress = progress.getProgress();
+                progress.setProgress(currentprogress + 17);
+                augment_check();
+            }
+
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -180,7 +172,7 @@ public class quests extends AppCompatActivity {
                             int currentprogress = progress.getProgress();
                             progress.setProgress(currentprogress + 17);
                             cb1.setClickable(false);
-                            replace( day, 0, "1");
+                            replace(day, 0, "1");
                             augment_check();
                         }
                     });
@@ -194,7 +186,7 @@ public class quests extends AppCompatActivity {
                             int currentprogress = progress.getProgress();
                             progress.setProgress(currentprogress + 17);
                             cb2.setClickable(false);
-                            replace( day, 1, "1");
+                            replace(day, 1, "1");
                             augment_check();
                         }
                     });
@@ -208,7 +200,7 @@ public class quests extends AppCompatActivity {
                             int currentprogress = progress.getProgress();
                             progress.setProgress(currentprogress + 17);
                             cb3.setClickable(false);
-                            replace( day, 2, "1");
+                            replace(day, 2, "1");
                             augment_check();
                         }
                     });
@@ -222,7 +214,7 @@ public class quests extends AppCompatActivity {
                             cb4.setClickable(false);
                             int currentprogress = progress.getProgress();
                             progress.setProgress(currentprogress + 17);
-                            replace( day, 3, "1");
+                            replace(day, 3, "1");
                             augment_check();
                         }
                     });
@@ -235,7 +227,7 @@ public class quests extends AppCompatActivity {
                             cb5.setClickable(false);
                             int currentprogress = progress.getProgress();
                             progress.setProgress(currentprogress + 17);
-                            replace( day, 4, "1");
+                            replace(day, 4, "1");
                             augment_check();
                         }
                     });
@@ -249,7 +241,7 @@ public class quests extends AppCompatActivity {
                             cb6.setClickable(false);
                             int currentprogress = progress.getProgress();
                             progress.setProgress(currentprogress + 17);
-                            replace( day, 5, "1");
+                            replace(day, 5, "1");
                             augment_check();
                         }
                     });
@@ -262,14 +254,12 @@ public class quests extends AppCompatActivity {
     }
 
 
-    public  void replace( int row, int column, String value)
-    {
+    public void replace(int row, int column, String value) {
         String[][] pin = new String[7][6];
         try {
             FileInputStream fis = openFileInput("dedomena.txt");
             BufferedReader reader = new BufferedReader(new InputStreamReader(fis));
-            for (int i = 0; i < 7; i++)
-            {
+            for (int i = 0; i < 7; i++) {
                 String[] temp = reader.readLine().split(" ");
                 for (int j = 0; j < 6; j++) {
                     pin[i][j] = temp[j];
@@ -295,11 +285,9 @@ public class quests extends AppCompatActivity {
     }
 
 
-
     public void test1() {
 
-        try
-        {
+        try {
             FileOutputStream fos = openFileOutput("dedomena.txt", MODE_PRIVATE);
             BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(fos));
             for (int i = 0; i < 7; i++) {
@@ -318,25 +306,5 @@ public class quests extends AppCompatActivity {
             e.printStackTrace();
         }
 
-
-
-        try {
-            FileInputStream fis = openFileInput("dedomena.txt");
-            BufferedReader reader = new BufferedReader(new InputStreamReader(fis));
-            for (int i = 0; i < 7; i++) {
-                String[] temp = reader.readLine().split(" ");
-                for (int j = 0; j < 6; j++) {
-                    System.out.print("Mera " + i);
-                    System.out.print("Task " + j);
-                    System.out.println("Timi " + temp[j]);
-                }
-                System.out.println();
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
     }
-
-
 }
