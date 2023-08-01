@@ -96,10 +96,9 @@ public class quests extends AppCompatActivity {
             FileInputStream fis = openFileInput("dedomena.txt");
             BufferedReader reader = new BufferedReader(new InputStreamReader(fis));
 
-            for (int i = 0; i < day; i++)
+            for (int i = 0; i <= day; i++)
             {
                 String[] temp = reader.readLine().split(" ");
-
                 for (int j = 0; j < 6; j++)
                 {
                     switch (j)
@@ -298,7 +297,7 @@ public class quests extends AppCompatActivity {
 
 
     public void test1() {
-/*
+
         try
         {
             FileOutputStream fos = openFileOutput("dedomena.txt", MODE_PRIVATE);
@@ -320,7 +319,7 @@ public class quests extends AppCompatActivity {
         }
 
 
- */
+
         try {
             FileInputStream fis = openFileInput("dedomena.txt");
             BufferedReader reader = new BufferedReader(new InputStreamReader(fis));
