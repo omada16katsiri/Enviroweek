@@ -20,19 +20,17 @@ import java.io.OutputStreamWriter;
 import java.util.Calendar;
 import java.util.Objects;
 
-public class quests extends AppCompatActivity
-{
+public class quests extends AppCompatActivity {
 
     public Calendar calendar = Calendar.getInstance();
-    public  int day = calendar.get(Calendar.DAY_OF_WEEK) -1;
-    public CheckBox cb1, cb2 , cb3 , cb4 ,cb5 , cb6;
+    public int day = calendar.get(Calendar.DAY_OF_WEEK) - 1;
+    public CheckBox cb1, cb2, cb3, cb4, cb5, cb6;
     public ProgressBar progress;
-    public int c=0;
+    public int c = 0;
 
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quests);
 
@@ -40,14 +38,13 @@ public class quests extends AppCompatActivity
         // μετονομασία τίτλου
         String new_title = intent1.getStringExtra("title");
         setTitle(new_title);
-
         assign();
         CheckBoxinitialstate(quests.this);
         CheckBoxini();
 
 
         AlarmManager alarmManager = (AlarmManager) this.getSystemService(Context.ALARM_SERVICE);
-        Intent intent = new Intent(this,broadcastreciever.class);
+        Intent intent = new Intent(this, broadcastreciever.class);
         PendingIntent pendingIntent = PendingIntent.getBroadcast(
                 this,
                 0,
@@ -63,106 +60,92 @@ public class quests extends AppCompatActivity
         calendar.set(Calendar.SECOND, 0);
         calendar.set(Calendar.MILLISECOND, 0);
         if (calendar.getTimeInMillis() < System.currentTimeMillis()) {
-            // If the calculated time is in the past (e.g., it's already Monday midnight), add one week to schedule it for the next Monday
+
             calendar.add(Calendar.WEEK_OF_YEAR, 1);
         }
 
-        if (alarmManager != null)
-        {
-            // RTC_WAKEUP will wake up the device if it is asleep
+        if (alarmManager != null) {
+
             alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),
                     AlarmManager.INTERVAL_DAY * 7, pendingIntent);
         }
     }
 
-    public void assign()
-    {
-        progress= (ProgressBar) findViewById(R.id.progressBar) ;
-        cb1= (CheckBox) findViewById(R.id.checkBox);
-        cb2= (CheckBox) findViewById(R.id.checkBox2);
-        cb3= (CheckBox) findViewById(R.id.checkBox3);
-        cb4= (CheckBox) findViewById(R.id.checkBox4);
-        cb5= (CheckBox) findViewById(R.id.checkBox5);
-        cb6= (CheckBox) findViewById(R.id.checkBox6);
+    public void assign() {
+        progress = (ProgressBar) findViewById(R.id.progressBar);
+        cb1 = (CheckBox) findViewById(R.id.checkBox);
+        cb2 = (CheckBox) findViewById(R.id.checkBox2);
+        cb3 = (CheckBox) findViewById(R.id.checkBox3);
+        cb4 = (CheckBox) findViewById(R.id.checkBox4);
+        cb5 = (CheckBox) findViewById(R.id.checkBox5);
+        cb6 = (CheckBox) findViewById(R.id.checkBox6);
     }
 
-    public void augment_check()
-    {
+    public void augment_check() {
         c++;
-        if(c==6)
-        {
+        if (c == 6) {
             Intent intent = new Intent(this, Reward.class);
             startActivity(intent);
         }
     }
-    public void CheckBoxinitialstate(Context context)
-    {
-        try
-        {
+
+    public void CheckBoxinitialstate(Context context) {
+        try {
             FileInputStream fis = context.openFileInput("dedomena.txt");
             BufferedReader reader = new BufferedReader(new InputStreamReader(fis));
 
-            for (int i = 0; i < day; i++)
-            {
+            for (int i = 0; i < day; i++) {
                 String[] temp = reader.readLine().split(" ");
                 System.out.println(temp);
-                for (int j = 0; j < 6; j++)
-                {
-                    switch (j)
-                    {
+                for (int j = 0; j < 6; j++) {
+                    switch (j) {
                         case 0:
-                            if(Objects.equals(temp[j], "1"))
-                            {
+                            if (Objects.equals(temp[j], "1")) {
                                 cb1.setChecked(true);
                                 cb1.setClickable(false);
-                                int currentprogress=progress.getProgress();
-                                progress.setProgress(currentprogress+ 17);
+                                int currentprogress = progress.getProgress();
+                                progress.setProgress(currentprogress + 17);
                                 augment_check();
                             }
 
                         case 1:
-                            if(Objects.equals(temp[j], "1"))
-                            {
+                            if (Objects.equals(temp[j], "1")) {
                                 cb2.setChecked(true);
                                 cb2.setClickable(false);
-                                int currentprogress=progress.getProgress();
-                                progress.setProgress(currentprogress+ 17);
+                                int currentprogress = progress.getProgress();
+                                progress.setProgress(currentprogress + 17);
                                 augment_check();
                             }
                         case 2:
-                            if(Objects.equals(temp[j], "1"))
-                            {
+                            if (Objects.equals(temp[j], "1")) {
                                 cb3.setChecked(true);
                                 cb3.setClickable(false);
-                                int currentprogress=progress.getProgress();
-                                progress.setProgress(currentprogress+ 17);
+                                int currentprogress = progress.getProgress();
+                                progress.setProgress(currentprogress + 17);
                                 augment_check();
                             }
                         case 3:
-                            if(Objects.equals(temp[j], "1"))
-                            {
+                            if (Objects.equals(temp[j], "1")) {
                                 cb4.setChecked(true);
                                 cb4.setClickable(false);
-                                int currentprogress=progress.getProgress();
-                                progress.setProgress(currentprogress+ 17);
+                                int currentprogress = progress.getProgress();
+                                progress.setProgress(currentprogress + 17);
                                 augment_check();
                             }
                         case 4:
-                            if(Objects.equals(temp[j], "1"))
-                            {
+                            if (Objects.equals(temp[j], "1")) {
                                 cb5.setChecked(true);
                                 cb5.setClickable(false);
-                                int currentprogress=progress.getProgress();
-                                progress.setProgress(currentprogress+ 17);
+                                int currentprogress = progress.getProgress();
+                                progress.setProgress(currentprogress + 17);
                                 augment_check();
                             }
                         case 5:
-                            if(Objects.equals(temp[j], "1"))
-                            {
+                            if (Objects.equals(temp[j], "1")) {
                                 cb6.setChecked(true);
                                 cb6.setClickable(false);
-                                int currentprogress=progress.getProgress();
-                                progress.setProgress(currentprogress+ 17);
+                                int currentprogress = progress.getProgress();
+                                progress.setProgress(currentprogress + 17);
                                 augment_check();
                             }
                     }
@@ -171,125 +154,106 @@ public class quests extends AppCompatActivity
 
             }
 
-        }
-        catch (IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
 
     }
 
 
-
-    public void CheckBoxini()
-    {
-        Thread thread=new Thread(new Runnable()
-        {
+    public void CheckBoxini() {
+        Thread thread = new Thread(new Runnable() {
 
             @Override
-            public void run()
-            {
+            public void run() {
 
-                if(!cb1.isChecked())
-                {
+                if (!cb1.isChecked()) {
                     cb1.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-                            int currentprogress=progress.getProgress();
-                            progress.setProgress(currentprogress+ 17);
+                            int currentprogress = progress.getProgress();
+                            progress.setProgress(currentprogress + 17);
                             cb1.setClickable(false);
-                            replace(quests.this, day ,0,"1");
+                            replace(quests.this, day, 0, "1");
                             augment_check();
                         }
                     });
                 }
 
 
-
-
-                if(!cb2.isChecked())
-                {
+                if (!cb2.isChecked()) {
                     cb2.setOnClickListener(new View.OnClickListener() {
                         @Override
-                        public void onClick(View view)
-                        {
-                            int currentprogress=progress.getProgress();
-                            progress.setProgress(currentprogress+ 17);
+                        public void onClick(View view) {
+                            int currentprogress = progress.getProgress();
+                            progress.setProgress(currentprogress + 17);
                             cb2.setClickable(false);
-                            replace(quests.this,day,1,"1");
+                            replace(quests.this, day, 1, "1");
                             augment_check();
                         }
                     });
                 }
 
 
-
-                if(!cb3.isChecked())
-                {
-                    cb3.setOnClickListener(new View.OnClickListener()
-                    {
+                if (!cb3.isChecked()) {
+                    cb3.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-                            int currentprogress=progress.getProgress();
-                            progress.setProgress(currentprogress+ 17);
+                            int currentprogress = progress.getProgress();
+                            progress.setProgress(currentprogress + 17);
                             cb3.setClickable(false);
-                            replace(quests.this,day,2,"1");
+                            replace(quests.this, day, 2, "1");
                             augment_check();
                         }
                     });
                 }
 
 
-
-
-                if(!cb4.isChecked())
-                {
+                if (!cb4.isChecked()) {
                     cb4.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
                             cb4.setClickable(false);
-                            int currentprogress=progress.getProgress();
-                            progress.setProgress(currentprogress+ 17);
-                            replace(quests.this,day,3,"1");
+                            int currentprogress = progress.getProgress();
+                            progress.setProgress(currentprogress + 17);
+                            replace(quests.this, day, 3, "1");
                             augment_check();
                         }
                     });
                 }
 
-                if(!cb5.isChecked())
-                {
+                if (!cb5.isChecked()) {
                     cb5.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
                             cb5.setClickable(false);
-                            int currentprogress=progress.getProgress();
-                            progress.setProgress(currentprogress+ 17);
-                            replace(quests.this,day,4,"1");
+                            int currentprogress = progress.getProgress();
+                            progress.setProgress(currentprogress + 17);
+                            replace(quests.this, day, 4, "1");
                             augment_check();
                         }
                     });
                 }
 
 
-               if(!cb6.isChecked())
-               {
-                   cb6.setOnClickListener(new View.OnClickListener() {
-                       @Override
-                       public void onClick(View view) {
-                           cb6.setClickable(false);
-                           int currentprogress=progress.getProgress();
-                           progress.setProgress(currentprogress+ 17);
-                           replace(quests.this,day,5,"1");
-                           augment_check();
-                       }
-                   });
+                if (!cb6.isChecked()) {
+                    cb6.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            cb6.setClickable(false);
+                            int currentprogress = progress.getProgress();
+                            progress.setProgress(currentprogress + 17);
+                            replace(quests.this, day, 5, "1");
+                            augment_check();
+                        }
+                    });
 
-               }
+                }
             }
         });
         thread.start();
 
     }
-
 
 
     public static void replace(Context context, int row, int column, String value) {
@@ -322,26 +286,22 @@ public class quests extends AppCompatActivity
         }
     }
 
-    public void test(Context context)
+
+    public void test1(Context context)
     {
         try {
-            FileOutputStream fos = context.openFileOutput("dedomena.txt", Context.MODE_PRIVATE);
-            BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(fos));
-            for (int i = 0; i < 7; i++) {
+            FileInputStream fis = context.openFileInput("dedomena.txt");
+            BufferedReader reader = new BufferedReader(new InputStreamReader(fis));
+            for (int i = 0; i < 7; i++)
+            {
                 for (int j = 0; j < 6; j++) {
-                    writer.write("0");
-                    // System.out.print();
-                    if (j != 5) {
-                        writer.write(" ");
-                        // System.out.print();
-                    }
+                    System.out.print(reader.readLine());
                 }
-                writer.write("\n");
             }
-            writer.close();
-        } catch (IOException e) {
+        }
+        catch (IOException e)
+        {
             e.printStackTrace();
         }
     }
-
 }

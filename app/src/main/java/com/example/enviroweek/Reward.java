@@ -25,7 +25,7 @@ public class Reward extends AppCompatActivity {
         rand=randomgenerator(a);
         TextView message;
         message=(TextView) findViewById(R.id.editTextTextMultiLine);
-        message.setText(a.tips.get(rand));
+        message.setText(a.tips.get(rand-1));
 
         ImageView imageView = findViewById(R.id.imageView);
         rand2=randomgenerator(7);
