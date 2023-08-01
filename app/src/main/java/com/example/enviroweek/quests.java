@@ -96,13 +96,18 @@ public class quests extends AppCompatActivity {
             FileInputStream fis = openFileInput("dedomena.txt");
             BufferedReader reader = new BufferedReader(new InputStreamReader(fis));
 
-            for (int i = 0; i < day; i++) {
+            for (int i = 0; i < day; i++)
+            {
                 String[] temp = reader.readLine().split(" ");
-                System.out.println(temp);
-                for (int j = 0; j < 6; j++) {
-                    switch (j) {
+
+                for (int j = 0; j < 6; j++)
+                {
+                    switch (j)
+                    {
                         case 0:
-                            if (Objects.equals(temp[j], "1")) {
+                            if (Objects.equals(temp[j], "1"))
+                            {
+                                System.out.println("Mpika!!!!");
                                 cb1.setChecked(true);
                                 cb1.setClickable(false);
                                 int currentprogress = progress.getProgress();
@@ -279,7 +284,7 @@ public class quests extends AppCompatActivity {
                 for (int j = 0; j < 6; j++) {
                     writer.write(pin[i][j]);
                     if (j != 5) {
-                        writer.write(' ');
+                        writer.write(" ");
                     }
                 }
                 writer.write("\n");
@@ -291,16 +296,16 @@ public class quests extends AppCompatActivity {
     }
 
 
-    /*
-    public void test1()
-    {
+
+    public void test1() {
+/*
         try
         {
             FileOutputStream fos = openFileOutput("dedomena.txt", MODE_PRIVATE);
             BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(fos));
             for (int i = 0; i < 7; i++) {
                 for (int j = 0; j < 6; j++) {
-                    writer.write("1");
+                    writer.write("0");
                     // System.out.print();
                     if (j != 5) {
                         writer.write(" ");
@@ -313,7 +318,26 @@ public class quests extends AppCompatActivity {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+
+ */
+        try {
+            FileInputStream fis = openFileInput("dedomena.txt");
+            BufferedReader reader = new BufferedReader(new InputStreamReader(fis));
+            for (int i = 0; i < 7; i++) {
+                String[] temp = reader.readLine().split(" ");
+                for (int j = 0; j < 6; j++) {
+                    System.out.print("Mera " + i);
+                    System.out.print("Task " + j);
+                    System.out.println("Timi " + temp[j]);
+                }
+                System.out.println();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 
-     */
+
 }

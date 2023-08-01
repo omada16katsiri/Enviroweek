@@ -29,7 +29,7 @@ public class Reward extends AppCompatActivity {
 
         ImageView imageView = findViewById(R.id.imageView);
         rand2=randomgenerator(7);
-        System.out.println("rand= " + rand2);
+        //System.out.println("rand= " + rand2);
         switch (rand2)
         {
             case 1:
